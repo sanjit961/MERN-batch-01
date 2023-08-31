@@ -7,7 +7,7 @@
 // let fruits = ["Orange", "Mango", "Banana"];
 // let veg = ["tata", "iodin"];
 
-// fruits.unshift("tomato");
+// fruits.unshift("tomato"); // Add items from the first
 
 // console.log(fruits);
 
@@ -89,7 +89,7 @@
 // const total = nums.reduce((a, b) => a + b);
 
 // const sortedArr = nums.sort((a, b) => a - b); // ascending order sorts
-// const sortedArrDec = nums.sort((a, b) => b - a); // ascending order sorts
+// const sortedArrDec = nums.sort((a, b) => b - a); // descending order sorts
 
 // const net = nums.reduce(function (a, b) {
 //   return a + b;
