@@ -100,3 +100,4 @@ let text = '1';
 // String - paragraph (200 words) - keyword ( 5 times);
 // create a function which takes keyword as args 
 // countRepeat(keyword) - return x times count 
+

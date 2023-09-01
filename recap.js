@@ -112,13 +112,35 @@ let myData = [
 // console.log(myData.map((item) => item.mobile));
 
 let ffnew = myData.map((item) => {
- return item.mobile;
+  return item.mobile;
 });
-
+console.log("ffnew", ffnew);
 // let ff = myData.filter((item) => item.mobile);
 
-console.log(ffnew.filter((item) => item !== undefined));
+const removed = ffnew.filter((item) => item !== undefined);
 
+// console.log(ffnew.filter((item) => item !== undefined));
+
+let empArr = [];
+
+let arr1 = [100, 2, 43, 83];
+
+empArr = [...arr1, ...arr1];
+
+const totalArrItems = arr1.reduce((a, b) => a + b);
+
+// console.log("item net", totalArrItems);
+
+// Sorting - Ascending order
+
+// const sortedAs = arr1.sort((a, b) => a - b);
+
+const sortedDes = arr1.sort((a, b) => b - a);
+
+// console.log('as',sortedAs);
+// console.log('des',sortedDes);
+
+// console.log("empArr", empArr);
 
 // Task
 
@@ -127,3 +149,70 @@ console.log(ffnew.filter((item) => item !== undefined));
 // 02. friends = ["don", "srk", "salman"] -- check if srk is present if present "I am SrK"
 
 // 03. arr = [12323, 2343, 974394, 34343, 23434] find the greatest and smallest element
+
+// Object Destructuring
+
+let demoObj = {
+  name: "Khushboo",
+  address: "Haryna",
+  mbl: "9877787",
+  friends: ["fff", "ewre", "sdfd"],
+};
+
+const { name, address, mbl } = demoObj;
+
+function getName(args) {
+  // console.log(args);
+  return args;
+}
+
+// getName(name);
+
+// console.log(getName(name));
+
+// console.log(name);
+// console.log(address);
+
+// console.log(demoObj.name);
+// console.log(demoObj.address);
+
+// String Replace
+
+let hello = "Hi i am mr hacker, helo i am a good hacker...";
+
+// const replaced = hello.replace(/HAcker/i, "software developer"); // incase sensitive
+
+const replaced = hello.replace(/hacker/g, "software developer"); // global sensitive
+
+console.log("=> ", replaced);
+
+// String -- Concat
+
+let newArrStr = hello.split(" ");
+console.log(newArrStr);
+
+// console.log(hello[0]);
+
+let demoArr = [12, 3423, 12, 12, 343, 343];
+
+// demoArr.map((item) => item);
+
+const dataMapped = demoArr.map((item, index, arr) => {
+  console.log(item);
+  return item;
+});
+
+// Filter
+
+const filteredItem = demoArr.filter((x, y, z) => x == 12);
+
+// console.log(filteredItem);
+// console.log(dataMapped);
+
+// Reduce is used to total the values
+
+const netTotalArr = demoArr.reduce((a, b) => {
+  console.log(a);
+  return a + b;
+});
+console.log("netTotalArr", netTotalArr);
