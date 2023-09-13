@@ -69,5 +69,11 @@ function abbreviatedName(input) {
 
 // let shortName = abbreviatedName(myName);
 
-console.log(abbreviatedName(myName));
+// console.log(abbreviatedName(myName));
+
+
+
+
+
+
 

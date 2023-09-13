@@ -1,0 +1,95 @@
+JavaScript RegExp 
+
+A regular expression is a pattern of characters.
+
+
+Regular expressions are a way of describing patterns of text. They can be used to match specific characters, patterns, and sequences of characters. Regular expressions are often used in programming languages to validate user input, extract information from text, and format text.
+
+[abc]	Find any character between the brackets
+[^abc]	Find any character NOT between the brackets
+[0-9]	Find any character between the brackets (any digit)
+[^0-9]	Find any character NOT between the brackets (any non-digit)
+(x|y)	Find any of the alternatives specified
+
+Here is a simple example of a regular expression:
+
+^[a-zA-Z0-9]+$
+This regular expression matches any string of characters that consists of only letters and numbers. The caret (^) character matches the beginning of the string, and the dollar sign ($) character matches the end of the string. The plus sign (+) means that the preceding character must occur one or more times.
+
+Here is another example of a regular expression:
+
+\d{3}-\d{3}-\d{4}
+This regular expression matches any string of characters that consists of three digits, a hyphen, three digits, another hyphen, and four digits. The backslash () character is used to escape special characters, such as the hyphen. The curly braces ({}) are used to specify the number of times a character or group of characters must occur.
+
+Regular expressions can be very powerful, but they can also be complex. If you are new to regular expressions, I recommend starting with some simple examples and working your way up to more complex ones. There are many resources available online to help you learn about regular expressions.
+
+Here are some of the most common metacharacters and operators used in regular expressions:
+
+^: Matches the beginning of the string.
+$: Matches the end of the string.
+.: Matches any character.
+*: Matches the preceding character zero or more times. +: Matches the preceding character one or more times. ?: Matches the preceding character zero or one time. {n}: Matches the preceding character exactly n times. {n,m}: Matches the preceding character n to m times. |: Matches either the preceding character or the following character. () : Groups characters together. []: Matches any character in the set. [^]: Matches any character not in the set.
+
+1. Validate mobile number
+/^[0-9]{10}$/
+
+This regular expression matches any string of characters that consists of exactly 10 digits. The caret (^) character matches the beginning of the string, and the dollar sign ($) character matches the end of the string. The curly braces ({}) are used to specify the number of times a character or group of characters must occur.
+
+To test this regular expression, you can use the new RegExp() method in JavaScript. For example:
+
+const regex = new RegExp(/^[0-9]{10}$/);
+const mobileNumber = "1234567890";
+
+console.log(regex.test(mobileNumber)); // true
+This code will create a regular expression object and then test it against the string "1234567890". The test() method will return true if the string matches the regular expression, and false if it does not.
+
+2. Email Id
+let regex = new RegExp('[a-z0-9]+@[a-z]+\.[a-z]{2,3}');
+
+This is a regular expression that can be used to validate email addresses. It consists of the following parts:
+
+let regex = new RegExp('...') creates a new RegExp object with the pattern specified as a string argument. This is one way to create a regular expression in JavaScript. Another way is to use literal notation, such as let regex = /.../.
+[a-z0-9]+ matches one or more characters that are either lowercase letters from a to z or digits from 0 to 9. This is the part of the email address before the @ symbol.
+@ matches the literal @ symbol. This separates the user name and the domain name of the email address.
+[a-z]+ matches one or more characters that are lowercase letters from a to z. This is the part of the domain name before the dot symbol.
+\. matches the literal dot symbol. This separates the domain name and the top-level domain of the email address.
+[a-z]{2,3} matches two or three characters that are lowercase letters from a to z. This is the part of the top-level domain of the email address.
+Some examples of email addresses that match this regular expression are:
+
+alice@gmail.com
+bob123@yahoo.co.uk
+charlie@bing.com
+
+3. Strong password test
+
+A regular expression is a sequence of characters that defines a search pattern for text. It can be used to check if a string matches a certain format, such as a strong password. A strong password is usually one that is hard to guess or crack by someone else. There are different criteria for what makes a strong password, but some common ones are:
+
+- It should be at least 8 characters long.
+- It should contain at least one uppercase letter, one lowercase letter, one digit, and one special character (such as !@#$%^&*).
+- It should not contain any spaces or repeated characters.
+
+One possible regular expression for checking a strong password in JavaScript is:
+
+`/^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[!@#$%^&*])\S{8,}$/`
+
+This regular expression can be explained as follows:
+
+- `^` and `$` are anchors that match the start and end of the string, respectively. This ensures that the whole string is checked, not just a part of it.
+- `(?=.*[A-Z])` is a positive lookahead assertion that checks if there is at least one uppercase letter in the string. The `.*` means any number of any characters, and the `[A-Z]` means any character in the range from A to Z.
+- `(?=.*[a-z])` is another positive lookahead assertion that checks if there is at least one lowercase letter in the string. The `[a-z]` means any character in the range from a to z.
+- `(?=.*\d)` is another positive lookahead assertion that checks if there is at least one digit in the string. The `\d` means any digit from 0 to 9.
+- `(?=.*[!@#$%^&*])` is another positive lookahead assertion that checks if there is at least one special character in the string. The `[!@#$%^&*]` means any character in the set of !, @, #, $, %, ^, &, and *.
+- `\S{8,}` matches at least 8 non-space characters. The `\S` means any non-space character, and the `{8,}` means at least 8 times.
+
+Some examples of strings that match this regular expression are:
+
+- `P@ssw0rd!`
+- `Qwerty123$`
+- `Zxcvbnm*9`
+
+Some examples of strings that do not match this regular expression are:
+
+- `password` (too short, no uppercase, no digit, no special character)
+- `Password1` (no special character)
+- `P@ssword1` (repeated character)
+- `P@ss word1` (space character)
