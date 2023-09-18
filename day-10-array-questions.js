@@ -64,7 +64,7 @@ var library = [
     readingStatus: true,
   },
   {
-    author: "Steve Jobs",
+    author: "Steve Jobs",2
     title: "Walter Isaacson",
     readingStatus: true,
   },
