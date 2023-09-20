@@ -60,20 +60,12 @@ let myName = "Khusboo Sharma";
 
 function abbreviatedName(input) {
   let splittedName = input.split(" ");
-//   console.log(splittedName);
-//   console.log(splittedName[0]);
-//   console.log(splittedName[1].slice(0, 1));
-  return `${splittedName[0]} ${splittedName[1].slice(0, 1)}.`
-
+  //   console.log(splittedName);
+  //   console.log(splittedName[0]);
+  //   console.log(splittedName[1].slice(0, 1));
+  return `${splittedName[0]} ${splittedName[1].slice(0, 1)}.`;
 }
 
 // let shortName = abbreviatedName(myName);
 
 // console.log(abbreviatedName(myName));
-
-
-
-
-
-
-

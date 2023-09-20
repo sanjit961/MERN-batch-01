@@ -1,0 +1,4 @@
+
+testignore.js
+.env
+/test
