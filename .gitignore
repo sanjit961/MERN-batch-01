@@ -2,3 +2,6 @@
 testignore.js
 .env
 /test
+
+/ReactJs/test-app/node_modules
+/ReactJs/test-app/build
