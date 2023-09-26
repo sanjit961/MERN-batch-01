@@ -6,6 +6,7 @@ function DemoTest() {
   const [password, setPassword] = useState("");
   const [isTest, setIsSetTest] = useState(false);
   const [userData, setUserData] = useState([]);
+  const [userId, setUserId] = useState();
   const [isEdit, setIsEdit] = useState(false);
 
   //   CRUD - Create Read Update Delete
@@ -20,6 +21,7 @@ function DemoTest() {
 
   const addUser = () => {
     let user = {
+      id: userData.length + 1,
       name: name,
       mobile: mobile,
       password: password,
@@ -27,6 +29,7 @@ function DemoTest() {
     // console.log(user);
 
     setUserData((prev) => [...prev, user]);
+
     setName("");
     setMobile("");
     setPassword("");
@@ -35,19 +38,41 @@ function DemoTest() {
     // setUserData([user]);
   };
 
-  const editUser = (id) => {
+  const editUser = (id, name) => {
     setIsEdit(true);
     console.log(id);
     console.log(userData[id]);
     setName(userData[id].name);
     setMobile(userData[id].mobile);
     setPassword(userData[id].password);
+    setUserId(userData[id].id);
   };
 
   useEffect(() => {
     console.log(userData);
   }, [userData]);
 
+  const saveEditUser = () => {
+    let user = {
+      id: userId,
+      name: name,
+      mobile: mobile,
+      password: password,
+    };
+    console.log(user);
+
+    setUserData((prev) => [...prev.filter((item) => item.id != userId), user]);
+    setIsEdit(false);
+    setMobile("");
+    setName("");
+    setPassword("");
+  };
+  const deleteUser = (id) => {
+    // const newData = userData.filter((item) => item.id != id);
+    // console.log("nee", newData);
+    // setUserData(newData);
+    setUserData((prev) => [...prev.filter((item) => item.id !== id)]);
+  };
   return (
     <div>
       <input
@@ -78,7 +103,7 @@ function DemoTest() {
       {!isEdit ? (
         <button onClick={() => addUser()}>Add User</button>
       ) : (
-        <button>Edit User</button>
+        <button onClick={() => saveEditUser()}>Edit User</button>
       )}
       <div>
         <h2 style={{ textAlign: "center" }}>Users - {userData.length}</h2>
@@ -94,11 +119,14 @@ function DemoTest() {
                       margin: "40px auto",
                     }}
                   >
-                    <h3>{index}</h3>
+                    <h3>Id: {item.id}</h3>
                     <p>Name: {item.name}</p>
                     <p>Mobile: {item.mobile}</p>
                     <p>Password: {item.password}</p>
-                    <button onClick={() => editUser(index)}>Edit</button>
+                    <button onClick={() => editUser(index, item.name)}>
+                      Edit
+                    </button>
+                    <button onClick={() => deleteUser(item.id)}>Delete</button>
                   </div>
                 </>
               );
