@@ -6,6 +6,15 @@ import DemoInput from "./component/DemoInput";
 import DemoTest from "./component/DemoTest";
 import DemoProp from "./component/DemoProp";
 import { useState } from "react";
+import ParentComponent from "./component/ParentComponent";
+import ParentComponent2 from "./component/ParentComponent2";
+import Contact from "./Pages/Contact";
+import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import Home from "./Pages/Home";
+import About from "./Pages/About";
+import NoPage from "./Pages/NoPage";
+import Login from "./Pages/Login";
+import Register from "./Pages/Register";
 
 const App = () => {
   const [friendName, setFriendName] = useState("");
@@ -34,35 +43,67 @@ const App = () => {
   const testFunct2 = (name) => {
     console.log("Hello! ", name);
   };
+  const testArr = ["sfds", "sdfs"];
 
   return (
     <>
+      <BrowserRouter>
+        <ul className="nav">
+          <li>
+            <Link to="/">Home</Link>
+          </li>
+          <li>
+            <Link to="/contact">Contact</Link>
+          </li>
+          <li>
+            <Link to="/about">About</Link>
+          </li>
+          <li>
+            <Link to="/login">Login</Link>
+          </li>
+          <li>
+            <Link to="/register">Register</Link>
+          </li>
+        </ul>
+        {/* <h2>test</h2> */}
+        {/* <DemoInput/> */}
+        <Routes>
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="*" element={<NoPage />} />
+        </Routes>
+      </BrowserRouter>
+
       {/* <Demo /> */}
-      <div>
-        <h2 className="App">Hello World!</h2>
-        <input
+      {/* <div> */}
+      {/* <h2 className="App">Hello World!</h2> */}
+      {/* <input
           value={friendName}
           onChange={(e) => setFriendName(e.target.value)}
-        />
-        <DemoProp
+        /> */}
+      {/* <DemoProp
           name={friendName}
           isChecked={false}
           address="Haryana"
           demoData={demoObj2}
           testFunction={testFunct}
-        />
-      </div>
+        /> */}
+      {/* </div> */}
       {/* <Sum /> */}
-      <DemoTest />
-      <DemoProp
+      {/* <DemoTest /> */}
+      {/* <DemoProp
         isChecked={true}
         name="test name"
         address="Assam"
         data={demoArr}
         demoData={demoObj}
         testFunction={testFunct2}
-      />
-
+      /> */}
+      {/* <ParentComponent /> */}
+      {/* <ParentComponent2 /> */}
       {/* <DemoInput /> */}
     </>
   );

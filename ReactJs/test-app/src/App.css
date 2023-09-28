@@ -40,3 +40,11 @@
   }
 }
 
+
+.nav{
+  list-style: none;
+  display: flex;
+}
+.nav li{
+  margin: 5px;
+}
