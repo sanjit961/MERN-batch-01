@@ -15,6 +15,8 @@ import About from "./Pages/About";
 import NoPage from "./Pages/NoPage";
 import Login from "./Pages/Login";
 import Register from "./Pages/Register";
+import TestApi from "./Pages/TestApi";
+import ApiCalls from "./component/ApiCalls";
 
 const App = () => {
   const [friendName, setFriendName] = useState("");
@@ -67,11 +69,13 @@ const App = () => {
         </ul>
         {/* <h2>test</h2> */}
         {/* <DemoInput/> */}
+        {/* <TestApi/> */}
+        <ApiCalls/>
         <Routes>
           <Route path="/contact" element={<Contact />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
-          <Route path="/" element={<Home />} />
+          {/* <Route path="/" element={<Home />} /> */}
           <Route path="/about" element={<About />} />
           <Route path="*" element={<NoPage />} />
         </Routes>
